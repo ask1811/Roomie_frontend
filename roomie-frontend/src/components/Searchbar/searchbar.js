@@ -1,7 +1,9 @@
-import React from 'react'
-import Data from MOCK_DATA.json
+import React, {useState} from 'react'
+import Data from '../../MOCK_DATA.json'
 import './searchbar.css'
+ 
 const Searchbar = () => {
+  const [query] = useState("")
   return (
     <div>
     {
