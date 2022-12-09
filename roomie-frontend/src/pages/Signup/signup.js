@@ -1,6 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from "axios";
+import { Input } from 'reactstrap'
+import './signup.css'
 
-const signup = () => {
+const baseURL = "https://tokenside.ashwins6.repl.co/api"
+
+const Signup = () => {
+  
+  const [logdata,setData] = useState({
+    name:"",
+    username:"",
+    password:""
+})
+
+
+const addData = (e)=>{
+    // console.log(e.target);
+    const {name,value} = e.target;
+    setData(()=>{
+        return{
+            ...logdata,
+            [name]:value
+        }
+            
+    })
+}
+
+async function signup(){
+  await axios
+      .post(`${baseURL}/signup`, {
+        name: logdata.name,
+        username: logdata.username,
+        password: logdata.password
+      })
+      .then((response) => {
+        console.log(response.data);
+        localStorage.setItem("token",response.data.token);
+        window.location.href = "/";
+      });
+}
+
+
   return (
     <div>
     <div class="login-wrapper">
@@ -32,7 +72,7 @@ const signup = () => {
           onChange={addData} value={logdata.password}
           required
         />
-        <label for="loginconfirmPassword">Confirm Password</label>
+        <label for="loginPassword">Confirm Password</label>
       </div>
 <Input type="submit" value="Sign Up" class="submit-btn" onClick={(e)=>{e.preventDefault();
 console.log(logdata);
@@ -43,4 +83,4 @@ signup()}}/>
   )
 }
 
-export default signup
+export default Signup
