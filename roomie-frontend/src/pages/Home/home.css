@@ -1,0 +1,24 @@
+.image{
+    width: 1800x;
+    height: 800px;
+}
+.bigimg{
+    width: 1790px;
+    height: 1000px;
+}
+.right {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(+0%, -50%);
+    font-size: 50px;
+    justify-content: end;
+  }
+  .search{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(+0%, -50%);
+    font-size: 50px;
+    justify-content: end;
+  }

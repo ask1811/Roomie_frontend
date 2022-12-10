@@ -10,10 +10,11 @@
   .nav {
     height: 65px;
     width: 100%;
-    background-color: #2a06fa;
+    background-color: rgba(219,217,217);
     position: relative;
     justify-content: space-between;
-  }
+    flex-direction: row;
+    }
   
   .nav > .nav-header {
     display: inline;
@@ -23,8 +24,8 @@
   
   .nav > .nav-header > .nav-title a{
     display: inline-block;
-    font-size: 35px;
-    color:white;
+    font-size: 36px;
+    color:red;
     padding: 10px 10px 10px 20px;
     text-decoration: none;
   }
@@ -36,7 +37,7 @@
   .nav > .nav-links {
     margin-left: auto; 
     margin-right: 0px;
-    font-size: 18px;
+    font-size: 20px;
 
   }
   

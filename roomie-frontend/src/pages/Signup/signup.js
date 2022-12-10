@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios";
 import { Input } from 'reactstrap'
 import './signup.css'
-
-const baseURL = "https://tokenside.ashwins6.repl.co/api"
+const baseURL = "https://localhost:3000"
 
 const Signup = () => {
   
@@ -28,8 +27,8 @@ const addData = (e)=>{
 
 async function signup(){
   await axios
-      .post(`${baseURL}/signup`, {
-        name: logdata.name,
+  .post(`${baseURL}/signup`, {
+  name: logdata.name,
         username: logdata.username,
         password: logdata.password
       })

@@ -1,28 +1,84 @@
-import React, {useState} from 'react'
-import Data from '../../MOCK_DATA.json'
+
+
+import React, {useState,useEffect} from 'react'
+
+
 import './searchbar.css'
- 
-const Searchbar = () => {
-  const [query] = useState("")
-  return (
-    <div>
-    {
-      Data.filter(post => {
-        if (query === '') {
-          return post;
-        } else if (post.title.toLowerCase().includes(query.toLowerCase())) {
-          return post;
-        }
-      }).map((post, index) => (
-        <div className="box" key={index}>
-          <p>{post.title}</p>
-          <p>{post.author}</p>
-        </div>
-      ))
-    }
-   
-    </div>
-  )
+
+const SearchBar = () => {
+
+//  const [searchInput, setSearchInput] = useState('');
+
+ const countries = [
+
+  { name: "Belgium", continent: "Europe" },
+  { name: "India", continent: "Asia" },
+  { name: "Bolivia", continent: "South America" },
+  { name: "Ghana", continent: "Africa" },
+  { name: "Japan", continent: "Asia" },
+  { name: "Canada", continent: "North America" },
+  { name: "New Zealand", continent: "Australasia" },
+  { name: "Italy", continent: "Europe" },
+  { name: "South Africa", continent: "Africa" },
+  { name: "China", continent: "Asia" },
+  { name: "Paraguay", continent: "South America" },
+  { name: "Usa", continent: "North America" },
+  { name: "France", continent: "Europe" },
+  { name: "Botswana", continent: "Africa" },
+  { name: "Spain", continent: "Europe" },
+  { name: "Senegal", continent: "Africa" },
+  { name: "Brazil", continent: "South America" },
+  { name: "Denmark", continent: "Europe" },
+  { name: "Mexico", continent: "South America" },
+  { name: "Australia", continent: "Australasia" },
+  { name: "Tanzania", continent: "Africa" },
+  { name: "Bangladesh", continent: "Asia" },
+  { name: "Portugal", continent: "Europe" },
+  { name: "Pakistan", continent:"Asia" },
+
+];
+
+// const handleChange = (e) => {
+//   e.preventDefault();
+//   setSearchInput(e.target.value);
+// };
+// useEffect (() => {
+
+// if (searchInput.length > 0) {
+//     countries.filter((country) => {
+//     return country.name.match(searchInput);
+// });
+// }
+
+return <div>
+
+<input
+   type="search"
+   placeholder="Search here"
+  //  onChange={handleChange}
+  //  value={searchInput} 
+  />
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+
+{countries.map((country, index) => {
+
+<div>
+  <tr>
+    <td>{country.name}</td>
+    <td>{country.continent}</td>
+  </tr>
+</div>
+
+})}
+</table>
+
+</div>
+// ,[searchInput]
 }
 
-export default Searchbar
+export default SearchBar;
