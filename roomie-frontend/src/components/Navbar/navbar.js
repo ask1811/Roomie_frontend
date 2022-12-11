@@ -44,8 +44,9 @@ else{
     <div class="nav-links">
       <a href="/login" target="_self">Post Listing</a>
       <a href="/login" target="_self">Find a Room</a>
-      <a href="/login" target="_self">Login</a>
       <a href="/discover" target="_self">Discover</a>
+      <a href="/login" target="_self">Login</a>
+
 
     </div>
   </div>

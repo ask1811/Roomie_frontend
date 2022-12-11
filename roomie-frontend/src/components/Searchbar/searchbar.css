@@ -1,14 +1,11 @@
-.app {
+.bar {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-left: 540px;
     align-items: center;
+    margin-top: -320px;
   }
-  .box {
-    text-align: left;
-    border: black ridge 1px;
-    border-radius: 10px;
-    margin: 3px;
-    width: 20rem;
-    padding-left: 10px;
-  }  
+ .smallbar{
+ width: 500px;
+ height: 30px;
+ }

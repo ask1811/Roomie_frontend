@@ -1,9 +1,12 @@
 import React from 'react'
 import './discover.css'
+import Footer from '../../components/Footer/footer';
+
 const Discover = () => {
   
 
-    return (            
+    return (  
+      <>          
       <div className="wrapper">
         <Card
           img="https://img.freepik.com/premium-photo/white-wooden-little-toy-houses-gray-background-minimalist-scandinavian-decorative-design_136930-1076.jpg?w=1480&q=85&fm=jpg&crop=entropy&cs=srgb&h=1000"
@@ -55,6 +58,8 @@ const Discover = () => {
           price="45.00"
         />
       </div>
+      <Footer/>
+      </>
     );
   }
   

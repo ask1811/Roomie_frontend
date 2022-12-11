@@ -50,35 +50,37 @@ const SearchBar = () => {
 // });
 // }
 
-return <div>
+return (
+  <><div className='bar'>
+    <input
+      type="search"
+      placeholder="Search here"
+      className='smallbar'
+      />
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
 
-<input
-   type="search"
-   placeholder="Search here"
-  //  onChange={handleChange}
-  //  value={searchInput} 
-  />
+      {countries.map((country, index) => {
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-  </tr>
+        <div>
+          <tr>
+            <td>{country.name}</td>
+            <td>{country.continent}</td>
+          </tr>
+        </div>;
 
-{countries.map((country, index) => {
+      })}
+    </table>
 
-<div>
-  <tr>
-    <td>{country.name}</td>
-    <td>{country.continent}</td>
-  </tr>
-</div>
+    </div>
+    </>
 
-})}
-</table>
-
-</div>
 // ,[searchInput]
-}
+)}
 
 export default SearchBar;

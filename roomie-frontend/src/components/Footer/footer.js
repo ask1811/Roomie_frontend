@@ -13,14 +13,14 @@ return (
 	<Box>
 	<h1 style={{ color: "red",
 				textAlign: "center",
-				marginTop: "-10px" }}>
+				marginTop:"-60px"  }}>
 		ROOMIE:The easiest way to find a mate
 	</h1>
 	<Container>
 		<Row>
 		<Column>
 			<Heading>About Us</Heading>
-			<FooterLink href="#">Aim</FooterLink>
+			<FooterLink href="/aim">Aim</FooterLink>
 		</Column>
 		<Column>
 			<Heading>Services</Heading>

@@ -6,6 +6,7 @@ import Signup from './pages/Signup/signup';
 import Navbar from './components/Navbar/navbar';
 import Login from './pages/Login/login'; 
 import Discover from './pages/Discover/discover';
+import Aim from './pages/Aim/aim';
 
 function App() {
 return (
@@ -17,7 +18,7 @@ return (
   		 <Route path='/login' element={<Login/>} />
   		 <Route path='/signup' element={<Signup/>} />
 		<Route path='/discover' element={<Discover/>} />
-
+		<Route path='/aim' element={<Aim/>} />
   	</Routes>
     </BrowserRouter>
   </div>

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import axios from "axios";
 import { Input } from 'reactstrap'
 import './signup.css'
+import Footer from '../../components/Footer/footer';
+
 const baseURL = "https://localhost:3000"
 
 const Signup = () => {
@@ -41,9 +43,10 @@ async function signup(){
 
 
   return (
+    <>
     <div>
-    <div class="login-wrapper">
-    <form action="" class="form">
+    <div className="content">
+    <img src='https://www.flatmate.in/home-image.webp' alt='alternate' className='image' />    <form action="" class="form">
       <h2>Sign Up</h2>
       <div class="input-group">
         <input type="text" name="name" id="loginUser" onChange={addData} value={logdata.name} />
@@ -73,12 +76,13 @@ async function signup(){
         />
         <label for="loginPassword">Confirm Password</label>
       </div>
-<Input type="submit" value="Sign Up" class="submit-btn" onClick={(e)=>{e.preventDefault();
+<Input type="submit" value="Sign Up" className="submit-btn" onClick={(e)=>{e.preventDefault();
 console.log(logdata);
 signup()}}/>
     </form>
   </div>
     </div>
+    </>
   )
 }
 

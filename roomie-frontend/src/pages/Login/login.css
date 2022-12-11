@@ -8,23 +8,17 @@
     background-size: cover;
     font-family: sans-serif;
   }
-  .login-wrapper {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .form {
     position: static;
     width: 100%;
     max-width: 380px;
     padding: 80px 40px 40px;
-    background: #2a06fa;
+    background: #75c2e0;
     border-radius: 10px;
     color: #000;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-    
+    margin-left: 850px;
+    margin-top: -600px;
   }
   .form::before {
     content: "";
@@ -76,6 +70,7 @@
     font-size: 1rem;
     pointer-events: none;
     transition: 0.3s ease-out;
+    
   }
   .form .input-group input:focus + label,
   .form .input-group input:valid + label {
@@ -127,11 +122,11 @@
     text-decoration: none;
     color: inherit;
   }
-  .sig{
-bottom: 1px;
+  #sig{
+  margin-left: 850px;
+  margin-top: 20px;
   }
   .image{
     width: 671px;
     height: 800px
-    fit-content;
   }

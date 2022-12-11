@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 //import axios from "axios";
 import { Input } from 'reactstrap'
 import './login.css'
+import Footer from '../../components/Footer/footer';
+
 
  const Login = () => {
   
@@ -39,6 +41,7 @@ import './login.css'
 
 
   return (
+    <>
     <div className="content">
     <img src='https://www.flatmate.in/home-image.webp' alt='alternate' className='image' />
     <form action="" class="form">
@@ -64,10 +67,11 @@ import './login.css'
 <Input type="submit" value="Log In" className="submit-btn"/>
 </form>
 
-<a className='sig' href="/signup" target="_self">Click here to signup</a>
+<a id='sig' href="/signup" target="_self">Click here to signup</a>
 
     
     </div>
+</>
   )
 }
 
