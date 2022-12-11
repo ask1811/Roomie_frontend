@@ -67,7 +67,7 @@ import Footer from '../../components/Footer/footer';
 <Input type="submit" value="Log In" className="submit-btn"/>
 </form>
 
-<a id='sig' href="/signup" target="_self">Click here to signup</a>
+<a className ='sig' href="/signup" target="_self">Click here to signup</a>
 
     
     </div>

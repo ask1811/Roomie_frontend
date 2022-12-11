@@ -42,12 +42,19 @@ else{
       </div>
     
     <div class="nav-links">
-      <a href="/login" target="_self">Post Listing</a>
-      <a href="/login" target="_self">Find a Room</a>
-      <a href="/discover" target="_self">Discover</a>
-      <a href="/login" target="_self">Login</a>
-
-
+      <a href="/login" target="_self" className='btn1'>
+      <span class="replies">Post</span>
+      <span class="comments"></span>
+     </a>
+      <a href="/login" target="_self" className='btn2'>
+      <span class="replies">Find</span>
+      <span class="comments"></span>
+      </a>
+      <a href="/discover" target="_self" className='btn3'>
+      <span class="replies">Discover</span>
+      <span class="comments"></span>
+      </a>
+      <a href="/login" target="_self" className='btn4'>Login</a>
     </div>
   </div>
     );

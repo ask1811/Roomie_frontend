@@ -22,11 +22,14 @@
 	 border-radius: 0.2rem;
 	 min-width: 28rem;
 	 display: flex;
+	 border-radius: 20px;
 }
  .card__img {
 	 width: 14rem;
 	 height: 11rem;
 	 object-fit: cover;
+	 border-top-left-radius: 20px;
+	 border-top-right-radius: 20px ;
 }
  .card__body {
 	 margin: 1rem;

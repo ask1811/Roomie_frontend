@@ -122,10 +122,11 @@
     text-decoration: none;
     color: inherit;
   }
-  #sig{
+  .sig{
   margin-left: 850px;
-  margin-top: 20px;
-  }
+  margin-top: 100px;
+  
+}
   .image{
     width: 671px;
     height: 800px
