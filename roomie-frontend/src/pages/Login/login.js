@@ -39,7 +39,7 @@ async function ownerlogin(){
         if(response.data.message=="Login Successful"){
           localStorage.setItem("token","xxx");
           localStorage.setItem("userId",response.data.user[0].Id)
-          window.location.href = "/";
+          window.location.href = "/landing-page";
         }
       
         
@@ -56,7 +56,7 @@ async function tenantlogin(){
         if(response.data.message=="Login Successful"){
           localStorage.setItem("token","xxx");
           localStorage.setItem("userId",response.data.user[0].Id)
-          window.location.href = "/";
+          window.location.href = "/tlanding-page";
         }
       
         

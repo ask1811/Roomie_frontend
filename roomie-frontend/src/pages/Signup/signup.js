@@ -29,19 +29,35 @@ const addData = (e)=>{
     })
 }
 
-async function signup(){
-  await axios.post(`${baseURL}/signup`, {
-    name: logdata.name,
-        email: logdata.email,
-        password: logdata.password
+async function tenantsignup(){
+  await axios.post(`${baseURL}/tenant/register`, {
+        Name: logdata.name,
+        Email: logdata.email,
+        Password: logdata.password
       })
       .then((response) => {
-        console.log(response.data);
-        localStorage.setItem("token",response.data.token);
-        window.location.href = "/";
+        console.log(response.data.message);
+        if(response.data.message=="Tenant registeration successful"){
+          console.log("test");
+          window.location.href = "/login";
+        }
       });
 }
 
+async function ownersignup(){
+  await axios.post(`${baseURL}/owner/register`, {
+        Name: logdata.name,
+        Email: logdata.email,
+        Password: logdata.password
+      })
+      .then((response) => {
+        console.log(response.data.message);
+        if(response.data.message=="Owner registeration successful"){
+          console.log("test");
+          window.location.href = "/login";
+        }
+      });
+}
 
   return (
     
@@ -51,7 +67,7 @@ async function signup(){
     <form action="" className="form">
       <h2>Sign Up</h2>
       <div class="input-group">
-        <input type="text" name="name" id="loginUser" onChange={addData} value={logdata.name} />
+        <input type="text" name="name" id="loginName" onChange={addData} value={logdata.name} />
         <label for="User">Name</label>
       </div>
       <div class="input-group">
@@ -71,8 +87,8 @@ async function signup(){
       <div class="input-group">
         <input
           type="password"
-          name="password"
-          id="loginPassword"
+          name="confirmpassword"
+          id="loginconfirmPassword"
           required
         />
         <label for="loginPassword">Confirm Password</label>
@@ -86,13 +102,15 @@ async function signup(){
     setUser("Tenant")}}/>
    <label for="tenant">Tenant</label>
    {
-    (user==="Owner")&&<button type="submit" className="submit-btn"   onClick={()=>{
-      window.location.href="/landing-page"
+    (user==="Owner")&&<button type="submit" className="submit-btn"   onClick={(e)=>{
+      e.preventDefault();
+      ownersignup();
     }}>Signup</button>
    }
    {
-    (user==="Tenant")&&<button type="submit"  className="submit-btn"   onClick={()=>{
-      window.location.href="/tlanding-page"
+    (user==="Tenant")&&<button type="submit"  className="submit-btn"   onClick={(e)=>{
+      e.preventDefault();
+      tenantsignup();
   
     }}>Signup</button>
 }
