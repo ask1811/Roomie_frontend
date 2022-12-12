@@ -10,7 +10,7 @@ const Signup = () => {
   
   const [logdata,setData] = useState({
     name:"",
-    username:"",
+    email:"",
     password:""
 })
 
@@ -31,7 +31,7 @@ async function signup(){
   await axios
   .post(`${baseURL}/signup`, {
   name: logdata.name,
-        username: logdata.username,
+        email: logdata.email,
         password: logdata.password
       })
       .then((response) => {
@@ -54,8 +54,8 @@ async function signup(){
         <label for="User">Name</label>
       </div>
       <div class="input-group">
-        <input type="text" name="username" id="loginUser" onChange={addData} value={logdata.username} />
-        <label for="loginUser">User Name</label>
+        <input type="text" name="email" id="loginUser" onChange={addData} value={logdata.email} />
+        <label for="loginUser">E mail</label>
       </div>
       <div class="input-group">
         <input
@@ -76,11 +76,27 @@ async function signup(){
           required
         />
         <label for="loginPassword">Confirm Password</label>
-      </div>
-<Input type="submit" value="Sign Up" className="submit-btn" onClick={(e)=>{e.preventDefault();
-console.log(logdata);
-signup()}}/>
-    </form>
+        </div>
+        <p>Please select user</p>
+        <input type="radio" id="owner" name="user" value="Owner" onChange={()=>{
+          setUser("Owner")
+        }}/>
+  <label for="owner">Owner</label>
+   <input type="radio" id="tenant" name="user" value="Tenant" onChange={()=>{
+    setUser("Tenant")}}/>
+   <label for="tenant">Tenant</label>
+   {
+    (user==="Owner")&&<button type="submit" className="submit-btn"   onClick={()=>{
+      window.location.href="/landing-page"
+    }}>Login</button>
+   }
+   {
+    (user==="Tenant")&&<button type="submit"  className="submit-btn"   onClick={()=>{
+      window.location.href="/tlanding-page"
+  
+    }}>Login</button>
+}
+      </form>
   </div>
     </div>
     </>

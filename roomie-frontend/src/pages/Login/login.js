@@ -7,7 +7,7 @@ import Footer from '../../components/Footer/footer';
  const Login = () => {
   
   const [logdata,setData] = useState({
-    username:"",
+    email:"",
     password:""
 })
 const [user,setUser]=useState("Owner")
