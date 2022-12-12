@@ -66,28 +66,28 @@ async function tenantlogin(){
 
 
 
-function usePage(frm, ev) {
-  // get radio button being checked
-  const checkedBtn = document.querySelector('Input[type="radio"][name="owner"]:checked');
-  // was a button checked?
-  if (checkedBtn) {
-      // let user confirm 
-      const result = window.confirm("Owner " + checkedBtn.value + "selected");
-      if (result) {
-          // user confirmed
-          frm.action = checkedBtn.value;
-      } else {
-          // user denied
-          // prevent form from being submitted
-          // let user confirm 
-      const result = window.confirm("Tenant " + checkedBtn.value + "selected");
-      if (result) {
-          // user confirmed
-          frm.action = checkedBtn.value;
-      }
-  } 
-}
-}
+// function usePage(frm, ev) {
+//   // get radio button being checked
+//   const checkedBtn = document.querySelector('Input[type="radio"][name="owner"]:checked');
+//   // was a button checked?
+//   if (checkedBtn) {
+//       // let user confirm 
+//       const result = window.confirm("Owner " + checkedBtn.value + "selected");
+//       if (result) {
+//           // user confirmed
+//           frm.action = checkedBtn.value;
+//       } else {
+//           // user denied
+//           // prevent form from being submitted
+//           // let user confirm 
+//       const result = window.confirm("Tenant " + checkedBtn.value + "selected");
+//       if (result) {
+//           // user confirmed
+//           frm.action = checkedBtn.value;
+//       }
+//   } 
+// }
+// }
 
 // function MM_goToURL() { 
 //   var i, args=MM_goToURL.arguments; document.MM_returnValue = false;

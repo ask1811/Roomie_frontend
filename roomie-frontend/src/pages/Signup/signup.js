@@ -4,7 +4,6 @@ import { Input } from 'reactstrap'
 import './signup.css'
 import Footer from '../../components/Footer/footer';
 
-const baseURL = "https://localhost:8000"
 
 const Signup = () => {
   
@@ -13,6 +12,9 @@ const Signup = () => {
     email:"",
     password:""
 })
+const [user,setUser]=useState("")
+
+const baseURL = "http://localhost:8000"
 
 
 const addData = (e)=>{
@@ -28,9 +30,8 @@ const addData = (e)=>{
 }
 
 async function signup(){
-  await axios
-  .post(`${baseURL}/signup`, {
-  name: logdata.name,
+  await axios.post(`${baseURL}/signup`, {
+    name: logdata.name,
         email: logdata.email,
         password: logdata.password
       })
@@ -43,7 +44,7 @@ async function signup(){
 
 
   return (
-    <>
+    
     <div className='whole'>
     <div className="content">
     <img src='https://www.flatmate.in/home-image.webp' alt='alternate' className='image' />    
@@ -55,11 +56,7 @@ async function signup(){
       </div>
       <div class="input-group">
         <input type="text" name="email" id="loginUser" onChange={addData} value={logdata.email} />
-<<<<<<< HEAD
-        <label for="loginUser">E mail</label>
-=======
         <label for="loginUser">E-mail</label>
->>>>>>> 6027da09d98e0c0a0974ab55c64b5513bb4220ad
       </div>
       <div class="input-group">
         <input
@@ -79,7 +76,6 @@ async function signup(){
           required
         />
         <label for="loginPassword">Confirm Password</label>
-<<<<<<< HEAD
         </div>
         <p>Please select user</p>
         <input type="radio" id="owner" name="user" value="Owner" onChange={()=>{
@@ -92,24 +88,19 @@ async function signup(){
    {
     (user==="Owner")&&<button type="submit" className="submit-btn"   onClick={()=>{
       window.location.href="/landing-page"
-    }}>Login</button>
+    }}>Signup</button>
    }
    {
     (user==="Tenant")&&<button type="submit"  className="submit-btn"   onClick={()=>{
       window.location.href="/tlanding-page"
   
-    }}>Login</button>
+    }}>Signup</button>
 }
       </form>
-=======
       </div>
-<Input type="submit" value="Sign Up" className="submit-btn" onClick={(e)=>{e.preventDefault();
-console.log(logdata);}}/>
-    </form>
->>>>>>> 6027da09d98e0c0a0974ab55c64b5513bb4220ad
-  </div>
-    </div>
-    </>
+      </div>
+  
+    
   )
 }
 
