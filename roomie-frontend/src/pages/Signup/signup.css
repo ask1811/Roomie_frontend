@@ -13,7 +13,7 @@
     width: 100%;
     max-width: 380px;
     padding: 80px 40px 40px;
-    background: #75c2e0;
+    background: #3bb5b8;
     border-radius: 10px;
     color: #ffff;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
@@ -118,5 +118,8 @@
     font-weight: 900;
     text-decoration: none;
     color: inherit;
+  }
+  .whole{
+    background-image: url('https://static.vecteezy.com/system/resources/previews/001/984/861/original/abstract-blue-geometric-circles-overlapping-background-with-light-blue-free-vector.jpg');
   }
   

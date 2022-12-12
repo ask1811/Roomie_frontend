@@ -1,10 +1,17 @@
 import React from 'react'
-
+import './aim.css'
 const Aim = () => {
   return (
     <div className='content'>
-              <img src='https://findmyroom.in/images/hero2.jpg' alt='alternate' className='aimimage' />
-      <h1 className='heading'>Our Aim</h1>
+    <img src='https://www.flatmate.in/home-image.webp' alt='alternate' className='image1' />
+    <div className='heading'>Our Aim
+    <p className='daim'>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    </div>
       
     </div>
   )

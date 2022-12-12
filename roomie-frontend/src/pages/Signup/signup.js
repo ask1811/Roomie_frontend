@@ -44,9 +44,10 @@ async function signup(){
 
   return (
     <>
-    <div>
+    <div className='whole'>
     <div className="content">
-    <img src='https://www.flatmate.in/home-image.webp' alt='alternate' className='image' />    <form action="" class="form">
+    <img src='https://www.flatmate.in/home-image.webp' alt='alternate' className='image' />    
+    <form action="" className="form">
       <h2>Sign Up</h2>
       <div class="input-group">
         <input type="text" name="name" id="loginUser" onChange={addData} value={logdata.name} />

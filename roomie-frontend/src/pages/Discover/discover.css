@@ -11,15 +11,16 @@
 	 color: #4f546c;
 }
  .wrapper {
-	 margin: 2rem;
+	 margin: 0rem;
 	 display: grid;
 	 gap: 10rem;
 	 grid-template-columns: 1fr;
 	 justify-content: center;
+	 background-image: url('https://static.vecteezy.com/system/resources/previews/001/984/861/original/abstract-blue-geometric-circles-overlapping-background-with-light-blue-free-vector.jpg');
+
 }
  .card {
 	 box-shadow: 0 0 10px 5px #e1e5ee;
-	 border-radius: 0.2rem;
 	 min-width: 28rem;
 	 display: flex;
 	 border-radius: 20px;

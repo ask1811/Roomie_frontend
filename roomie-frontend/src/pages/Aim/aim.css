@@ -2,8 +2,14 @@
     justify-content: center;
 }
 .heading{
-    margin-top: 100px;
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    transform: translate(+0%, -50%);
+    font-size: 50px;
+    justify-content: end;
 }
-.aimimage{
-    width: 2000px;
+.daim{
+    font-size: 20px;
+    margin-right: 1rem;
 }

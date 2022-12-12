@@ -10,7 +10,7 @@
   .nav {
     height: 65px;
     width: 100%;
-    background-color: rgba(219,217,217);
+    background-color: #5ef8f9;
     position: relative;
     justify-content: space-between;
     flex-direction: row;

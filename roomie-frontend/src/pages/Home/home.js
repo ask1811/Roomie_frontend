@@ -5,7 +5,7 @@ import './home.css';
 const Home = () => {
   return (
     <>
-    <div>
+    <div className='whole'>
       <div className='content'>
         <div className='bigimg'>
           <img src='https://www.flatmate.in/home-image.webp' alt='alternate' className='image1' />
