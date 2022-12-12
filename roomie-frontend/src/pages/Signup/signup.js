@@ -4,7 +4,7 @@ import { Input } from 'reactstrap'
 import './signup.css'
 import Footer from '../../components/Footer/footer';
 
-const baseURL = "https://localhost:3000"
+const baseURL = "https://localhost:8000"
 
 const Signup = () => {
   
@@ -55,7 +55,11 @@ async function signup(){
       </div>
       <div class="input-group">
         <input type="text" name="email" id="loginUser" onChange={addData} value={logdata.email} />
+<<<<<<< HEAD
         <label for="loginUser">E mail</label>
+=======
+        <label for="loginUser">E-mail</label>
+>>>>>>> 6027da09d98e0c0a0974ab55c64b5513bb4220ad
       </div>
       <div class="input-group">
         <input
@@ -72,10 +76,10 @@ async function signup(){
           type="password"
           name="password"
           id="loginPassword"
-          onChange={addData} value={logdata.password}
           required
         />
         <label for="loginPassword">Confirm Password</label>
+<<<<<<< HEAD
         </div>
         <p>Please select user</p>
         <input type="radio" id="owner" name="user" value="Owner" onChange={()=>{
@@ -97,6 +101,12 @@ async function signup(){
     }}>Login</button>
 }
       </form>
+=======
+      </div>
+<Input type="submit" value="Sign Up" className="submit-btn" onClick={(e)=>{e.preventDefault();
+console.log(logdata);}}/>
+    </form>
+>>>>>>> 6027da09d98e0c0a0974ab55c64b5513bb4220ad
   </div>
     </div>
     </>
