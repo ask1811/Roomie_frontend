@@ -3,7 +3,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import SolidButton from '../../components/Solidbutton/solidbutton'
-import PlaceCard from '../../components/Place-Card/place-card'
+import PlaceCard from '../../components/Placecard/placecard'
 import './tlandingpage.css'
 
 const tLandingPage = (props) => {
@@ -15,14 +15,11 @@ const tLandingPage = (props) => {
       </Helmet>
       <div className="tlanding-page-top-container">
         <nav data-role="Header" className="tlanding-page-navbar">
-          <h1>Roomie</h1>
+          
           <div className="tlanding-page-right-side">
       
           
-          <SolidButton
-            button="Logout"
-            className="tlanding-page-component"
-          ></SolidButton>
+          
         
           </div>
           <div data-role="BurgerMenu" className="tlanding-page-burger-menu">
@@ -107,8 +104,8 @@ const tLandingPage = (props) => {
         </nav>
         <div className="tlanding-page-hero">
           <div className="tlanding-page-content-container">
-            <h1 className="Heading tlanding-page-text09">Tenent Dashboard</h1>
-            <h2 className="Subheading tlanding-page-subheading">
+            <h1 className="tlanding-page-text09">Tenant Dashboard</h1>
+            <h2 className="tlanding-page-subheading">
               rent or manage properties
             </h2>
             <span className="tlanding-page-text10">
