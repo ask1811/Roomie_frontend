@@ -3,7 +3,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import SolidButton from '../../components/Solidbutton/solidbutton'
-import PlaceCard from '../../components/Place-Card/place-card'
+import PlaceCard from '../../components/Placecard/placecard'
 import './landingpage.css'
 
 const LandingPage = (props) => {
@@ -15,14 +15,11 @@ const LandingPage = (props) => {
       </Helmet>
       <div className="landing-page-top-container">
         <nav data-role="Header" className="landing-page-navbar">
-          <h1>Roomie</h1>
+          
           <div className="landing-page-right-side">
       
           
-          <SolidButton
-            button="Logout"
-            className="landing-page-component"
-          ></SolidButton>
+          
         
           </div>
           <div data-role="BurgerMenu" className="landing-page-burger-menu">
@@ -112,8 +109,8 @@ const LandingPage = (props) => {
         </nav>
         <div className="landing-page-hero">
           <div className="landing-page-content-container">
-            <h1 className="Heading landing-page-text09">Owner Dashboard</h1>
-            <h2 className="Subheading landing-page-subheading">
+            <h1 className="landing-page-text09">Owner Dashboard</h1>
+            <h2 className="landing-page-subheading">
               add or manage properties
             </h2>
             <span className="landing-page-text10">

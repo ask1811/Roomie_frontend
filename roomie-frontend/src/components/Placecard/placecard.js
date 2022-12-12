@@ -2,8 +2,8 @@ import React from 'react'
 
 import PropTypes from 'prop-types'
 
-import OutlineButton from '../../components/Outline-Button/outline-button'
-import './place-card.css'
+import OutlineButton from '../Outlinebutton/outlinebutton'
+import './placecard.css'
 
 const PlaceCard = (props) => {
   return (
