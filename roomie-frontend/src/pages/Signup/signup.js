@@ -4,13 +4,13 @@ import { Input } from 'reactstrap'
 import './signup.css'
 import Footer from '../../components/Footer/footer';
 
-const baseURL = "https://localhost:3000"
+const baseURL = "https://localhost:8000"
 
 const Signup = () => {
   
   const [logdata,setData] = useState({
     name:"",
-    username:"",
+    email:"",
     password:""
 })
 
@@ -54,8 +54,8 @@ async function signup(){
         <label for="User">Name</label>
       </div>
       <div class="input-group">
-        <input type="text" name="username" id="loginUser" onChange={addData} value={logdata.username} />
-        <label for="loginUser">User Name</label>
+        <input type="text" name="email" id="loginUser" onChange={addData} value={logdata.email} />
+        <label for="loginUser">E-mail</label>
       </div>
       <div class="input-group">
         <input
@@ -72,14 +72,12 @@ async function signup(){
           type="password"
           name="password"
           id="loginPassword"
-          onChange={addData} value={logdata.password}
           required
         />
         <label for="loginPassword">Confirm Password</label>
       </div>
 <Input type="submit" value="Sign Up" className="submit-btn" onClick={(e)=>{e.preventDefault();
-console.log(logdata);
-signup()}}/>
+console.log(logdata);}}/>
     </form>
   </div>
     </div>

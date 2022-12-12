@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-//import axios from "axios";
+import axios from "axios";
 import { Input } from 'reactstrap'
 import './login.css'
 import Footer from '../../components/Footer/footer';
@@ -7,12 +7,13 @@ import Footer from '../../components/Footer/footer';
  const Login = () => {
   
   const [logdata,setData] = useState({
-    username:"",
+    email:"",
     password:""
 })
-const [user,setUser]=useState("Owner")
-console.log(user)
+const [user,setUser]=useState("")
+//console.log(user)
 
+const baseURL = "http://localhost:8000"
 
 const addData = (e)=>{
     // console.log(e.target);
@@ -25,6 +26,45 @@ const addData = (e)=>{
             
     })
 }
+
+
+
+async function ownerlogin(){
+  await axios.post(`${baseURL}/owner/login`, {
+        Email: logdata.email,
+        Password: logdata.password
+      })
+      .then((response) => {
+        console.log(response.data)
+        if(response.data.message=="Login Successful"){
+          localStorage.setItem("token","xxx");
+          localStorage.setItem("userId",response.data.user[0].Id)
+          window.location.href = "/";
+        }
+      
+        
+      }).catch(error=>{console.log(error)})
+}
+
+async function tenantlogin(){
+  await axios.post(`${baseURL}/tenant/login`, {
+        Email: logdata.email,
+        Password: logdata.password
+      })
+      .then((response) => {
+        console.log(response.data)
+        if(response.data.message=="Login Successful"){
+          localStorage.setItem("token","xxx");
+          localStorage.setItem("userId",response.data.user[0].Id)
+          window.location.href = "/";
+        }
+      
+        
+      }).catch(error=>{console.log(error)})
+}
+
+
+
 
 function usePage(frm, ev) {
   // get radio button being checked
@@ -98,13 +138,16 @@ function usePage(frm, ev) {
   setUser("Tenant")}}/>
  <label for="tenant">Tenant</label>
  {
-  (user==="Owner")&&<button type="submit" className="submit-btn"   onClick={()=>{
-    window.location.href="/landing-page"
+  (user==="Owner")&&<button type="submit" className="submit-btn"   onClick={(e)=>{
+    e.preventDefault();
+    console.log(logdata.password);
+    ownerlogin();
   }}>Login</button>
  }
  {
-  (user==="Tenant")&&<button type="submit"  className="submit-btn"   onClick={()=>{
-    window.location.href="/tlanding-page"
+  (user==="Tenant")&&<button type="submit"  className="submit-btn"   onClick={(e)=>{
+    e.preventDefault();
+    tenantlogin();
 
   }}>Login</button>
  }
