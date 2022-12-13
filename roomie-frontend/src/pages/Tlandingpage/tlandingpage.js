@@ -149,14 +149,14 @@ const TLandingPage = (props) => {
         <span className="tlanding-page-text15"></span>
         <div className="tlanding-page-cards-container">
         {
-          /*<PlaceCard
+          <PlaceCard
           property_id = {property.Id}
           image_alt = "test"
           pname={property.Name}
           image="https://img.freepik.com/premium-photo/white-wooden-little-toy-houses-gray-background-minimalist-scandinavian-decorative-design_136930-1076.jpg?w=1480&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;h=1000"
           paddress = {property.Location}
         />
-        
+        /*
          <PlaceCard
             pname="Slot Available"
             image="https://img.freepik.com/premium-photo/white-wooden-little-toy-houses-gray-background-minimalist-scandinavian-decorative-design_136930-1076.jpg?w=1480&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;h=1000"
