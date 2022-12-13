@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Helmet } from 'react-helmet'
-
+import axios from 'axios'
 import SolidButton from '../../components/Solidbutton/solidbutton'
 import PlaceCard from '../../components/Placecard/placecard'
 import './tlandingpage.css'
+const baseURL = "http://localhost:8000";
 
-const tLandingPage = (props) => {
+const TLandingPage = (props) => {
+
+  const [rentproperty,setRent] = useState([]);
+  const [property,setProperty] = useState([]);
+  useEffect(()=>{
+    fetchData();
+   },[])
+   async function fetchData(){
+    let property_id;
+    await axios.get(`${baseURL}/tenant/rent/${localStorage.getItem('userId')}`).then((response)=>{
+      setRent(response.data.property[0]);
+      property_id = response.data.property[0].Property_id;
+      
+  });
+  await axios.get(`${baseURL}/property/${property_id}`).then((response)=>{
+    console.log(response.data.property)
+    setProperty(response.data.property[0]);
+  });
+}
+
   return (
     <div className="tlanding-page-container">
       <Helmet>
@@ -128,7 +148,16 @@ const tLandingPage = (props) => {
         <h1>My rented properites</h1>
         <span className="tlanding-page-text15"></span>
         <div className="tlanding-page-cards-container">
-          <PlaceCard
+        {
+          /*<PlaceCard
+          property_id = {property.Id}
+          image_alt = "test"
+          pname={property.Name}
+          image="https://img.freepik.com/premium-photo/white-wooden-little-toy-houses-gray-background-minimalist-scandinavian-decorative-design_136930-1076.jpg?w=1480&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;h=1000"
+          paddress = {property.Location}
+        />
+        
+         <PlaceCard
             pname="Slot Available"
             image="https://img.freepik.com/premium-photo/white-wooden-little-toy-houses-gray-background-minimalist-scandinavian-decorative-design_136930-1076.jpg?w=1480&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;h=1000"
             paddress="click add to list new property"
@@ -158,7 +187,7 @@ const tLandingPage = (props) => {
             pname="Slot Available"
             image="https://img.freepik.com/premium-photo/white-wooden-little-toy-houses-gray-background-minimalist-scandinavian-decorative-design_136930-1076.jpg?w=1480&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;h=1000"
             paddress="click add to list new property"
-            ></PlaceCard>
+        ></PlaceCard> */}
           
         </div>
       </div>
@@ -223,4 +252,4 @@ const tLandingPage = (props) => {
   )
 }
 
-export default tLandingPage
+export default TLandingPage

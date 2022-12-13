@@ -1,9 +1,39 @@
-import React from 'react'
 
+import React, { useEffect, useState } from 'react'
+import axios from "axios";
+import { useParams } from 'react-router'
 import SolidButton from '../../components/Solidbutton/solidbutton'
 import './tview.css'
+const baseURL = "http://localhost:8000"
 
 const Tview = (props) => {
+  let {id} = useParams();
+  console.log(id);
+  const [property,setData] = useState([]);
+  const [owner,setOwner] = useState([]);
+  const [propertycost,setCost] = useState([]);
+  
+  useEffect(()=>{
+    fetchData();
+   },[])
+   async function fetchData(){
+    var owner_id;
+    await axios.get(`${baseURL}/property/${id}`).then((response)=>{
+      console.log(response.data.property)
+      owner_id = response.data.property[0].Owner_id
+      setData(response.data.property[0]);
+      
+  });
+    console.log(owner_id)
+    await axios.get(`${baseURL}/owner/${owner_id}`).then((response)=>{
+      console.log(response.data.user[0]);
+      setOwner(response.data.user[0])
+    })
+    await axios.get(`${baseURL}/property/propertyCost/${id}`).then((response)=>{
+      console.log(response);
+      setCost(response.data.propertyCost[0]);
+    })
+  }
   return (
     <div className="tview-container">
       <div id="main-section" className="tview-main">
@@ -96,30 +126,30 @@ const Tview = (props) => {
               rootClassName="solid-button-root-class-name1"
             ></SolidButton>
             <div className="tview-container3">
-              <span className="tview-text05">Property Name       :</span>
+              <span className="tview-text05">Property Name       :{property.Name}</span>
               <span className="tview-text06">
-                Location                    :
+                Location                    :{property.Location}
               </span>
-              <span className="tview-text07">Owner Name           :</span>
+              <span className="tview-text07">Owner Name           :{owner.Name}</span>
               <span className="tview-text08">
-                Contact                     :
+              Max. occupants                     :{property.Max_occupant}
               </span>
             </div>
             <div className="tview-container4">
               <span className="tview-text09">
-                Gas                             :
+                Gas                             :{propertycost.Gas}
               </span>
               <span className="tview-text10">
-                Electricity                   :
+                Electricity                   :{propertycost.Electricity}
               </span>
               <span className="tview-text11">
-                Water                          :
+                Water                          :{propertycost.Water}
               </span>
               <span className="tview-text12">
-                Rent                             :
+                Rent                             :{property.Rent}
               </span>
               <span className="tview-text13">
-                Total                            :
+                Total Approx.                            : {(propertycost.Gas + propertycost.Electricity + propertycost.Water + property.Rent)/property.Max_occupant}
               </span>
             </div>
             <h1 className="tview-text14">Charges</h1>
