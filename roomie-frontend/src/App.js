@@ -28,8 +28,8 @@ return (
 		<Route path='/tlandingpage' element={<Tlandingpage/>} />
 		<Route path='/Ownadd' element={<Ownadd/>} />
 		<Route path='/ownview' element={<Ownview/>} />
-		<Route path='/tview' element={<Tview/>} />
-		<Route path='/trent' element={<Trent/>} />
+		<Route path='/tview/:id' element={<Tview/>} />
+		<Route path='/trent/:id' element={<Trent/>} />
 
   	</Routes>
     </BrowserRouter>

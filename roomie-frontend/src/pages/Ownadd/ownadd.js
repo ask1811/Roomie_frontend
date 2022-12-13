@@ -1,9 +1,57 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import axios from "axios";
 import SolidButton from '../../components/Solidbutton/solidbutton'
 import './ownadd.css'
+const baseURL = "http://localhost:8000"
+  
+ 
 
 const Ownadd = (props) => {
+  const [logdata,setData] = useState({
+    Name:"",
+    Location:"",
+    Type:"",
+    Description:"",
+    Max_occupant:"",
+    Rent:""
+})
+
+
+const addData = (e)=>{
+    // console.log(e.target);
+    const {name,value} = e.target;
+    setData(()=>{
+        return{
+            ...logdata,
+            [name]:value
+        }
+            
+    })
+}
+
+
+
+
+async function addProperty(){
+
+    await axios.post(`${baseURL}/owner/${localStorage.getItem('userId')}/listproperty`, {
+      Name: logdata.Name,
+      Location: logdata.Location,
+      Type: logdata.Type,
+      Description: logdata.Description,
+      Max_occupant: logdata.Max_occupant,
+      Rent: logdata.Rent
+    })
+    .then((response) =>{
+      console.log(response);
+      
+    }).catch(error=>{console.log(error)})
+
+
+}
+
+
+
   return (
     <div className="ownadd-container">
       <div id="main-section" className="ownadd-main">
@@ -112,38 +160,61 @@ const Ownadd = (props) => {
               </div>
               <input
                 type="text"
+                onChange={addData}
                 placeholder=" "
+                name= "Name"
+                value = {logdata.Name}
                 className="ownadd-textinput input"
               />
               <input
                 type="text"
                 placeholder=" "
+
                 className="ownadd-textinput1 input"
               />
               <input
                 type="text"
                 placeholder=" "
+                onChange={addData}
+                name = "Location"
+                value = {logdata.Location}
                 className="ownadd-textinput2 input"
               />
               <input
                 type="text"
                 placeholder=" "
+                onChange={addData}
+                name = "Type"
+                value = {logdata.Type}
                 className="ownadd-textinput3 input"
               />
               <input
                 type="text"
                 placeholder=" "
+                onChange={addData}
+                name = "Max_occupant"
+                value = {logdata.Max_occupant}
                 className="ownadd-textinput4 input"
               />
               <input
                 type="text"
                 placeholder=" "
+                name = "Rent"
+                onChange={addData}
+                value = {logdata.Rent}
                 className="ownadd-textinput5 input"
               />
-              <textarea className="ownadd-textarea textarea"></textarea>
+              <textarea 
+              placeholder = " " 
+              onChange={addData}
+              name = "Description"
+              value = {logdata.Description}
+              className="ownadd-textarea textarea">
+
+              </textarea>
             </div>
           </div>
-          <SolidButton button="Submit"></SolidButton>
+          <button onClick={(e)=>{e.preventDefault();addProperty();window.location.href="/landingpage"}}>Submit</button>
         </div>
       </div>
       <div className="ownadd-footer">
