@@ -1,10 +1,16 @@
 .solid-button-container {
     display: flex;
     position: relative;
-    
+    font-size: 100px;
+  background-color: red;
+    border-radius: 15px;
+    border-color: black;
+    width: 100px;
+    height: 30px;
+    justify-content: center;
   }
   .solid-button-button {
-    color: var(--dl-color-gray-white);
+    color: #fff;
     border: none;
     padding-top: var(--dl-space-space-halfunit);
     padding-left: var(--dl-space-space-doubleunit);
@@ -13,5 +19,7 @@
     padding-bottom: var(--dl-space-space-halfunit);
     background-color: var(--dl-color-primary-100);
     cursor: pointer;
+    font-size: 20px;
+    
   }
   

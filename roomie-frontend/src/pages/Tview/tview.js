@@ -8,9 +8,7 @@ const Tview = (props) => {
     <div className="tview-container">
       <div id="main-section" className="tview-main">
         <nav data-role="Header" className="tview-navbar">
-          <h1>Roomie</h1>
           <div className="tview-right-side">
-            <SolidButton button="Logout"></SolidButton>
           </div>
           <div data-role="BurgerMenu" className="tview-burger-menu">
             <svg viewBox="0 0 1024 1024" className="tview-burger-menu">
@@ -94,7 +92,7 @@ const Tview = (props) => {
               className="tview-image"
             />
             <SolidButton
-              button="Delete"
+              button="Rent Now"
               rootClassName="solid-button-root-class-name1"
             ></SolidButton>
             <div className="tview-container3">

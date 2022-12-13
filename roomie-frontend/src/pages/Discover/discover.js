@@ -71,7 +71,7 @@ const Discover = () => {
           <h2 className="card__title">{props.title}</h2>
           <p className="card__description">{props.description}</p>
           <h3 className="card__price">{props.price}</h3>
-          <button className="card__btn">Rent Now</button>
+          <button className="card__btn">Show more</button>
         </div>
       </div>
     );

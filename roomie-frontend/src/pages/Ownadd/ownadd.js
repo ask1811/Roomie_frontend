@@ -8,9 +8,7 @@ const Ownadd = (props) => {
     <div className="ownadd-container">
       <div id="main-section" className="ownadd-main">
         <nav data-role="Header" className="ownadd-navbar">
-          <h1>Roomie</h1>
           <div className="ownadd-right-side">
-            <SolidButton button="Logout"></SolidButton>
           </div>
           <div data-role="BurgerMenu" className="ownadd-burger-menu">
             <svg viewBox="0 0 1024 1024" className="ownadd-burger-menu">
@@ -29,17 +27,7 @@ const Ownadd = (props) => {
                   </svg>
                 </div>
               </div>
-              <div className="ownadd-right-side1">
-                <div className="ownadd-links-container">
-                  <span className="ownadd-text">Home</span>
-                  <span className="ownadd-text01">About</span>
-                  <span className="ownadd-text02">Tour Packages</span>
-                  <span>Contact</span>
-                </div>
-                <a href="#main-section" className="ownadd-link">
-                  <SolidButton button="Explore places"></SolidButton>
-                </a>
-              </div>
+              
             </div>
             <div className="ownadd-follow-container">
               <span className="ownadd-text04">
@@ -102,19 +90,24 @@ const Ownadd = (props) => {
           <div className="ownadd-container2">
             <div className="ownadd-container3">
               <div className="ownadd-container4">
-                <span className="ownadd-text07">Property Name       :</span>
+                <span className="ownadd-text07">
+                  Property Name            :
+                </span>
                 <span className="ownadd-text08">
-                  Image URL                :
+                  Image URL                    :
                 </span>
                 <span className="ownadd-text09">
-                  Address                    :
+                  Location                        :
                 </span>
-                <span className="ownadd-text10">No. of Bed Rooms  :</span>
-                <span className="ownadd-text11">No. of Bath Rooms:</span>
-                <span className="ownadd-text12">Built-up Area          :</span>
+                <span className="ownadd-text10">
+                  Property Type              :
+                </span>
+                <span className="ownadd-text11">Max no. of Occupants:</span>
+                <span className="ownadd-text12">
+                  Rent                                :
+                </span>
                 <span className="ownadd-text13">
-                  <span>Amenities</span>
-                  <span>                :</span>
+                  Description                   :
                 </span>
               </div>
               <input
@@ -158,7 +151,7 @@ const Ownadd = (props) => {
           <h1>Roomie</h1>
           <div className="ownadd-links-container1"></div>
           <div className="ownadd-follow-container1">
-            <span className="ownadd-text16">
+            <span className="ownadd-text14">
               Follow us on
               <span
                 dangerouslySetInnerHTML={{

@@ -8,9 +8,7 @@ const Ownview = (props) => {
     <div className="ownview-container">
       <div id="main-section" className="ownview-main">
         <nav data-role="Header" className="ownview-navbar">
-          <h1>Roomie</h1>
           <div className="ownview-right-side">
-            <SolidButton button="Logout"></SolidButton>
           </div>
           <div data-role="BurgerMenu" className="ownview-burger-menu">
             <svg viewBox="0 0 1024 1024" className="ownview-burger-menu">
