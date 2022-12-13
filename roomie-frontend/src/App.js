@@ -12,6 +12,7 @@ import Tlandingpage from './pages/Tlandingpage/tlandingpage'
 import Ownadd from './pages/Ownadd/ownadd';
 import Ownview from './pages/Ownview/ownview';
 import Tview from './pages/Tview/tview'
+import Trent from './pages/Trent/trent'
 function App() {
 return (
   <div className="App">
@@ -28,6 +29,8 @@ return (
 		<Route path='/Ownadd' element={<Ownadd/>} />
 		<Route path='/ownview' element={<Ownview/>} />
 		<Route path='/tview' element={<Tview/>} />
+		<Route path='/trent' element={<Trent/>} />
+
   	</Routes>
     </BrowserRouter>
   </div>
