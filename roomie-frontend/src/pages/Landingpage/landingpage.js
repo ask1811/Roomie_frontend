@@ -6,6 +6,11 @@ import SolidButton from '../../components/Solidbutton/solidbutton'
 import PlaceCard from '../../components/Placecard/placecard'
 import './landingpage.css'
 
+
+
+
+
+
 const LandingPage = (props) => {
   return (
     <div className="landing-page-container">
