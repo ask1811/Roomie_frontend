@@ -112,7 +112,8 @@
     display: none; }
  
  .btn1:hover .comments:before{
-    content:"Post an ADD"; }
+    content:"Post an ADD"; 
+  }
     .btn2:hover .replies{
       display: none; }
    
