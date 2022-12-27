@@ -7,8 +7,8 @@ import './solidbutton.css'
 const SolidButton = (props) => {
   return (
     <div className="solid-button-container">
-      <button className="solid-button-button button Button">
-        {props.button}
+      <button className="solid-button-button button Button" onClick = {props.click}>
+        {props.button} 
       </button>
     </div>
   )

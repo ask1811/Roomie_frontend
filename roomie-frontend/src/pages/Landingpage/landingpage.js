@@ -1,12 +1,30 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { Helmet } from 'react-helmet'
 
 import SolidButton from '../../components/Solidbutton/solidbutton'
 import PlaceCard from '../../components/Placecard/placecard'
 import './landingpage.css'
 
+const baseURL = "http://localhost:8000";
+
+
 const LandingPage = (props) => {
+
+  const [properties,setProperty] = useState([]);
+
+  useEffect(()=>{
+    fetchData();
+   },[])
+
+  async function fetchData(){
+    await axios.get(`${baseURL}/property/owner/${localStorage.getItem('userId')}`).then((response)=>{
+      console.log(response.data.OwnerProperty);
+      setProperty(response.data.OwnerProperty);
+    })
+  }
+
+
   return (
     <div className="landing-page-container">
       <Helmet>
@@ -133,7 +151,20 @@ const LandingPage = (props) => {
         <h1>My properites</h1>
         <span className="landing-page-text15"></span>
         <div className="landing-page-cards-container">
-          <PlaceCard
+          {
+            properties.map(property =>{
+              return(
+                <PlaceCard
+                property_id = {property.Id}
+                pname={property.Name}
+                image="https://img.freepik.com/premium-photo/white-wooden-little-toy-houses-gray-background-minimalist-scandinavian-decorative-design_136930-1076.jpg?w=1480&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;h=1000"
+                paddress={property.Location}
+            ></PlaceCard>
+              )
+            })
+          
+          
+          /* <PlaceCard
             pname="Slot Available"
             image="https://img.freepik.com/premium-photo/white-wooden-little-toy-houses-gray-background-minimalist-scandinavian-decorative-design_136930-1076.jpg?w=1480&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;h=1000"
             paddress="click add to list new property"
@@ -163,7 +194,7 @@ const LandingPage = (props) => {
             pname="Slot Available"
             image="https://img.freepik.com/premium-photo/white-wooden-little-toy-houses-gray-background-minimalist-scandinavian-decorative-design_136930-1076.jpg?w=1480&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;h=1000"
             paddress="click add to list new property"
-            ></PlaceCard>
+            ></PlaceCard> */}
           
         </div>
       </div>

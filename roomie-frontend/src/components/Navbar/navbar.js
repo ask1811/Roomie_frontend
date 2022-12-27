@@ -22,7 +22,7 @@ const Navbar = ()=>{
     <a href="/" target="_self">Dashboard</a>
     <a href="/discover" target="_self">Discover</a>
 
-    <Link onClick={()=>{localStorage.removeItem('token'); localStorage.removeItem('userId'); window.location.href='/';}}to="/">Logout</Link>
+    <Link onClick={()=>{localStorage.removeItem('token'); localStorage.removeItem('userId'); localStorage.removeItem('user');window.location.href='/';}}to="/">Logout</Link>
   </div>
 </div>
 	);

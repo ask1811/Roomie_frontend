@@ -38,8 +38,9 @@ async function ownerlogin(){
         console.log(response.data)
         if(response.data.message=="Login Successful"){
           localStorage.setItem("token","xxx");
-          localStorage.setItem("userId",response.data.user[0].Id)
-          window.location.href = "/landing-page";
+          localStorage.setItem("userId",response.data.user[0].Id);
+          localStorage.setItem("user",'Owner')
+          window.location.href = "/landingpage";
         }
       
         
@@ -55,8 +56,9 @@ async function tenantlogin(){
         console.log(response.data)
         if(response.data.message=="Login Successful"){
           localStorage.setItem("token","xxx");
-          localStorage.setItem("userId",response.data.user[0].Id)
-          window.location.href = "/tlanding-page";
+          localStorage.setItem("userId",response.data.user[0].Id);
+          localStorage.setItem("user",'Tenant');
+          window.location.href = "/tlandingpage";
         }
       
         

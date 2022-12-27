@@ -1,9 +1,91 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import axios from "axios";
+import { useParams } from 'react-router'
 import SolidButton from '../../components/Solidbutton/solidbutton'
 import './ownview.css'
 
+const baseURL = "http://localhost:8000"
+
 const Ownview = (props) => {
+
+const [logdata,setData] = useState({
+  gas:'',
+  water:'',
+  electricity:''
+})
+
+
+const addData = (e)=>{
+  // console.log(e.target);
+  const {name,value} = e.target;
+  setData(()=>{
+      return{
+          ...logdata,
+          [name]:value
+      }
+          
+  })
+}
+
+  let {id} = useParams();
+  console.log(id);
+  const [property,setProperty] = useState([]);
+  const [owner,setOwner] = useState([]);
+  const [propertycost,setCost] = useState([]);
+  const [tenant,setTenant] = useState([]);  
+  useEffect(()=>{
+    fetchData();
+   },[])
+   async function fetchData(){
+    var owner_id;
+    var curroccupant
+    await axios.get(`${baseURL}/property/${id}`).then((response)=>{
+      console.log(response.data.property)
+      owner_id = response.data.property[0].Owner_id
+      setProperty(response.data.property[0]);
+      curroccupant=response.data.property[0].Current_occupant
+      
+  });
+    console.log(owner_id)
+    await axios.get(`${baseURL}/owner/${owner_id}`).then((response)=>{
+      console.log(response.data.user);
+      setOwner(response.data.user[0])
+    })
+    await axios.get(`${baseURL}/property/propertyCost/${id}`).then((response)=>{
+      console.log(response.data.propertyCost);
+      setCost(response.data.propertyCost[0]);
+    })
+    console.log(property)
+    if(curroccupant!=0){
+      await axios.get(`${baseURL}/tenant/rentproperty/${id}`).then((response)=>{
+        console.log(response.data.Tenant);
+        setTenant(response.data.Tenant);
+      })
+    }
+    // setData({
+    //   gas:propertycost.Gas,
+    //   electricity:propertycost.Electricity,
+    //   water:propertycost.Water,
+    //   rent:property.rent
+    // })
+    // logdata.gas=propertycost.Gas;
+    // logdata.electricity=propertycost.Electricity;
+    // logdata.water=propertycost.Water;
+    // logdata.rent=property.Rent;
+  }
+  
+  async function updateCost(){
+    await axios.put(`${baseURL}/owner/${id}/updatecost`,{
+      Gas:logdata.gas,
+      Water:logdata.water,
+      Electricity:logdata.electricity
+    }).then((response)=>{
+      console.log(response.data)
+    });
+    window.location.reload();
+  }
+
+
   return (
     <div className="ownview-container">
       <div id="main-section" className="ownview-main">
@@ -100,34 +182,64 @@ const Ownview = (props) => {
               className="ownview-image"
             />
             <SolidButton
-              button="Delete"
+              button="Update"
               rootClassName="solid-button-root-class-name"
+              click = {(e)=>{e.preventDefault();console.log(logdata); {updateCost()}}}
             ></SolidButton>
             <div className="ownview-container3">
-              <span className="ownview-text05">Property Name       :</span>
+              <span className="ownview-text05">Property Name       : {property.Name}</span>
               <span className="ownview-text06">
-                Location                    :
+                Location                    : {property.Location}
               </span>
-              <span className="ownview-text07">Tenant Name           :</span>
+              {
+                tenant.map(t=>{
+                  return(
+                    <span className="ownview-text07">Tenant Name           : {t.Name}</span>
+                  )
+                })
+              }
+              
               <span className="ownview-text08">
                 Contact                     :
               </span>
             </div>
             <div className="ownview-container4">
               <span className="ownview-text09">
-                Gas                             :
+                Gas                             : 
+                {propertycost.Gas}    
+                {<input
+                  type="text"
+                  name="gas"
+                  onChange={addData}
+                  value={logdata.gas}
+                />}
               </span>
               <span className="ownview-text10">
-                Electricity                   :
+                Electricity                   : 
+                {propertycost.Electricity}    
+                {<input
+                  type="text"
+                  name="electricity"
+                  onChange={addData}
+                  value={logdata.electricity}
+                />}
               </span>
               <span className="ownview-text11">
-                Water                          :
+                Water                          : 
+                {propertycost.Water}    
+                {<input
+                  type="text"
+                  name="water"
+                  onChange={addData}
+                  value={logdata.water}
+                />}
               </span>
               <span className="ownview-text12">
-                Rent                             :
+                Rent                             : 
+                {property.Rent}    
               </span>
               <span className="ownview-text13">
-                Total                            :
+                Total                            : {propertycost.Gas + propertycost.Water + propertycost.Electricity + property.Rent}
               </span>
             </div>
             <h1 className="ownview-text14">Charges</h1>

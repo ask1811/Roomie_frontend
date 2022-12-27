@@ -34,6 +34,21 @@ const Tview = (props) => {
       setCost(response.data.propertyCost[0]);
     })
   }
+
+  async function rentproperty(){
+    try {
+    await axios.post(`${baseURL}/tenant/rentproperty/${localStorage.getItem('userId')}`,{
+      Property_id:id
+    }).then(response=>{
+      if(response.status==200){
+        window.location.href='/tlandingpage'
+      }
+    })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="tview-container">
       <div id="main-section" className="tview-main">
@@ -123,6 +138,7 @@ const Tview = (props) => {
             />
             <SolidButton
               button="Rent Now"
+              click = {()=>{rentproperty()}}
               rootClassName="solid-button-root-class-name1"
             ></SolidButton>
             <div className="tview-container3">
