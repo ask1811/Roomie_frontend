@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react';
-import axios from "axios";import './discover.css'
+import axios from "axios";
+import './discover.css'
 import Footer from '../../components/Footer/footer';
 
 const baseURL = "http://localhost:8000"
