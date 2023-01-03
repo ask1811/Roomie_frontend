@@ -73,6 +73,11 @@ const addData = (e)=>{
     // logdata.water=propertycost.Water;
     // logdata.rent=property.Rent;
   }
+
+  async function deleteProperty(){
+    await axios.delete(`${baseURL}/owner/deleteproperty/${id}`).then(respnse=>{
+    })
+  }
   
   async function updateCost(){
     await axios.put(`${baseURL}/owner/${id}/updatecost`,{
@@ -185,6 +190,11 @@ const addData = (e)=>{
               button="Update"
               rootClassName="solid-button-root-class-name"
               click = {(e)=>{e.preventDefault();console.log(logdata); {updateCost()}}}
+            ></SolidButton>
+            <SolidButton
+              button="Delete"
+              rootClassName="solid-button-root-class-name"
+              click = {(e)=>{e.preventDefault();console.log(logdata); {deleteProperty()};window.location.href='/landingpage';}}
             ></SolidButton>
             <div className="ownview-container3">
               <span className="ownview-text05">Property Name       : {property.Name}</span>
